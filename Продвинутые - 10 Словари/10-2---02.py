@@ -18,8 +18,9 @@ users = [{'name': 'Todd', 'phone': '551-1414', 'email': 'todd@gmail.com'},
          {'name': 'Maria', 'phone': '12-129-3148', 'email': 'm.sharapova@gmail.com'},
          {'name': 'Fedor', 'phone': '+7445-341-0545', 'email': ''},
          {'name': 'Tim', 'phone': '242-449-3141', 'email': 'timm.ggg@yandex.ru'}]
-
+sp=[]
 for i in range(len(users)):
     phone = users[i]['phone']
     if users[i]['phone'][-1] == '8':
-        print(users[i]['name'])
+        sp.append(users[i]['name'])
+print(*sorted(sp))
