@@ -20,4 +20,6 @@ users = [{'name': 'Todd', 'phone': '551-1414', 'email': 'todd@gmail.com'},
          {'name': 'Tim', 'phone': '242-449-3141', 'email': 'timm.ggg@yandex.ru'}]
 
 for i in range(len(users)):
-    phone=users[i]['phone']
+    phone = users[i]['phone']
+    if users[i]['phone'][-1] == '8':
+        print(users[i]['name'])
