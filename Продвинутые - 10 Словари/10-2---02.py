@@ -18,3 +18,6 @@ users = [{'name': 'Todd', 'phone': '551-1414', 'email': 'todd@gmail.com'},
          {'name': 'Maria', 'phone': '12-129-3148', 'email': 'm.sharapova@gmail.com'},
          {'name': 'Fedor', 'phone': '+7445-341-0545', 'email': ''},
          {'name': 'Tim', 'phone': '242-449-3141', 'email': 'timm.ggg@yandex.ru'}]
+
+for i in range(len(users)):
+    phone=users[i]['phone']
