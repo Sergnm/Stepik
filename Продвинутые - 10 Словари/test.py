@@ -22,10 +22,4 @@ users = [{'name': 'Todd', 'phone': '551-1414', 'email': 'todd@gmail.com'},
 for i in range(len(users)):
     phone = users[i]['phone']
     if users[i]['phone'][-1] == '8':
-        print(users[i]['name'],'---',users[i]['phone'],'---',users[i]['phone'][-1])
-
-'''Helga --- 555-1618 --- 8
-LJ --- 555-2718 --- 8
-Ruslan --- 422-145-9098 --- 8
-Riyad --- 128-8890-128 --- 8
-Maria --- 12-129-3148 --- 8'''
+        print(users[i]['name'], '---', users[i]['phone'], '---', users[i]['phone'][-1])
