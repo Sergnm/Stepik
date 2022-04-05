@@ -7,22 +7,28 @@ def out_time(in_sec):
     ostatok_hour = ostatok_day - hours * num_hour
     minutes = ostatok_hour // num_minute
     seconds = ostatok_hour - minutes * num_minute
-    z1=['years', 'days', 'hours', 'minutes', 'seconds']
-    z2=[years, days, hours, minutes, seconds]
-    slov=dict(zip(z1,z2))
-    for i in range(5):
-
-    return slov
+    slov = {1: [years, 'years'],
+            2: [days, 'days'],
+            3: [hours, 'hours'],
+            4: [minutes, 'minutes'],
+            5: [seconds, 'seconds']}
+    text = ''
+    for key, value in slov.items():
+        if value[0] == 0:
+            continue
+        text += str(value[0]) + ' ' + value[1] + ', '
+    text = text[:-2]
+    return text
 
 
 num_minute = 60
 num_hour = 60 * 60
 num_day = 60 * 60 * 24
 num_year = 60 * 60 * 24 * 365
-print(num_minute)
-print(num_hour)
-print(num_day)
-print(num_year)
+# print(num_minute)
+# print(num_hour)
+# print(num_day)
+# print(num_year)
 
-x = 1*34 + 60*45 + 3600*15 + 86400*9 + 31536000*6
+x = 1 * 34 + 60 * 45 + 3600 * 0 + 86400 * 9 + 31536000 * 6
 print(out_time(x))
