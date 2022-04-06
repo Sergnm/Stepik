@@ -14,7 +14,7 @@ def out_time(in_sec):
             4: [minutes, 'minute'],
             5: [seconds, 'second']}
     text = ''
-    tot=0
+    tot = 0
     for key, value in slov.items():
         if value[0] == 0:
             continue
@@ -23,9 +23,9 @@ def out_time(in_sec):
             text += ', '
         else:
             text += 's, '
-        tot+=1
+        tot += 1
     text = text[:-2]
-    if tot>1:
+    if tot > 1:
         sp = list(text)
         sp.reverse()
         w = sp.index(',')
@@ -35,8 +35,6 @@ def out_time(in_sec):
         text = ''.join(sp)
     return text
 
-
-num_minute, num_hour, num_day, num_year = 60, 3600, 86400, 31536000
 
 x = 0 * 10 + 0 * 60 + 0 * 3600 + 1 * 86400 + 1 * 31536000
 print(out_time(x))
