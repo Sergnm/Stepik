@@ -1,5 +1,5 @@
 def out_time(in_sec):
-    num_minute, num_hour, num_day, num_year = 60, 3600, 86400, 31536000
+    num_minute, num_hour, num_day, num_year = 60, 3600, 86400, 31536000 # переменные
     years = in_sec // num_year
     ostatok_year = in_sec % num_year
     days = ostatok_year // num_day
@@ -25,7 +25,9 @@ def out_time(in_sec):
             text += 's, '
         tot += 1
     text = text[:-2]
-    if tot > 1:
+    if tot==0:
+        return "now"
+    elif tot > 1:
         sp = list(text)
         sp.reverse()
         w = sp.index(',')
@@ -36,5 +38,5 @@ def out_time(in_sec):
     return text
 
 
-x = 0 * 10 + 0 * 60 + 0 * 3600 + 1 * 86400 + 1 * 31536000
+x = 0 * 10 + 0 * 60 + 0 * 3600 + 0 * 86400 + 0 * 31536000
 print(out_time(x))
