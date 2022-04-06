@@ -1,22 +1,42 @@
 def out_time(in_sec):
-    num_minute, num_hour = 60, 3600 # переменные
-    hours = in_sec // num_hour
-    minutes = (in_sec % num_hour) // num_minute
-    seconds = (in_sec % num_hour) % num_minute
-    if hours<10:
-        h='0'+str(hours)
-    else:
-        h=str(hours)
-    if minutes<10:
-        m='0'+str(minutes)
-    else:
-        m=str(minutes)
-    if seconds<10:
-        s='0'+str(seconds)
-    else:
-        s=str(seconds)
-    return h+':'+m+':'+s
+    num_minute, num_hour, num_day, num_year = 60, 3600, 86400, 31536000 # переменные
+    years = in_sec // num_year
+    ostatok_year = in_sec % num_year
+    days = ostatok_year // num_day
+    ostatok_day = ostatok_year % num_day
+    hours = ostatok_day // num_hour
+    ostatok_hour = ostatok_day % num_hour
+    minutes = ostatok_hour // num_minute
+    seconds = ostatok_hour % num_minute
+    slov = {1: [years, 'year'],
+            2: [days, 'day'],
+            3: [hours, 'hour'],
+            4: [minutes, 'minute'],
+            5: [seconds, 'second']}
+    text = ''
+    tot = 0
+    for key, value in slov.items():
+        if value[0] == 0:
+            continue
+        text += str(value[0]) + ' ' + value[1]
+        if value[0] == 1:
+            text += ', '
+        else:
+            text += 's, '
+        tot += 1
+    text = text[:-2]
+    if tot==0:
+        return "now"
+    elif tot > 1:
+        sp = list(text)
+        sp.reverse()
+        w = sp.index(',')
+        e = sp.pop(w)
+        sp.insert(w, ' and')
+        sp.reverse()
+        text = ''.join(sp)
+    return text
 
 
-x = 59 * 1 + 59 * 60 + 99 * 3600
+x = 61 * 1 + 0 * 60 + 0 * 3600 + 0 * 86400 + 0 * 31536000
 print(out_time(x))
