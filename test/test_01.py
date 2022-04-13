@@ -1,5 +1,4 @@
-s = '1:men 2:kind 90:number 0:sun 34:book 56:mountain 87:wood 54:car 3:island 88:power 7:box 17:star 101:ice'
-s = s.split()
-print(s)
-result = {int((s[i].split(':'))[0]): str((s[i].split(':'))[1]) for i in range(len(s))}
+numbers = [34, 10, 4, 6, 10, 23, 90, 100, 21, 35, 95, 1, 36, 38, 19, 1, 6, 87, 1000, 13456, 360]
+
+result = {numbers[i]: [j for j in range(1,numbers[i]+1) if numbers[i]%j==0] for i in range(len(numbers))}
 print(result)
