@@ -1,7 +1,7 @@
 import random
 from functools import reduce
 #file = open(r'D:\TEMP_Virtual\lines.txt', 'r', encoding='utf-8')
-
+file = open(r'C:\Users\sergnm\Downloads\lines.txt', 'r', encoding='utf-8')
 '''for line in file:
     print(line.strip())
 '''
@@ -49,3 +49,10 @@ for line in file:
 file.close()
 print(tot)
 '''
+#           Что выведет приведенный ниже код?
+'''with open(r'D:\TEMP_Virtual\input.txt', encoding='utf-8') as file:
+    print('Repeat after me:', file.readline().strip())
+    for line in file:
+        print(line.strip() + '!')'''
+#          Переворот строки
+file = open(r'C:\Users\sergnm\Downloads\lines.txt', 'r', encoding='utf-8')
