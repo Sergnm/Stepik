@@ -1,4 +1,51 @@
-tuples = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12), (13, 14, 15), (16, 17, 18), (19, 20, 21), (22, 23, 24), (25, 26, 27), (28, 29, 30), (31, 32, 33), (34, 35, 36)]
+import random
+from functools import reduce
+#file = open(r'D:\TEMP_Virtual\lines.txt', 'r', encoding='utf-8')
 
-result = {a: (b, c) for a, b, c in tuples}
-print(result)
+'''for line in file:
+    print(line.strip())
+'''
+#           Метод read()
+'''content = file.read()
+file.close()
+print('<<<<<<<<<<=========================>>>>>>>>>>>>')
+print(content)
+print('<<<<<<<<<<=========================>>>>>>>>>>>>')
+'''
+#           Метод readline()
+'''
+print('<<<<<<<<<<=========================>>>>>>>>>>>>')
+for line in file:
+    print(line.strip())
+file.close()'''
+#           Метод readlines()
+"""print('<<<<<<<<<<=========================>>>>>>>>>>>>')
+languages = list(map(str.strip, file.readlines()))
+file.close()
+print(random.choice(languages))"""
+#           Сумма двух-1
+"""
+file = open(r'D:\TEMP_Virtual\numbers.txt', 'r', encoding='utf-8')
+tot=0
+for line in file:
+    tot+=int(line.strip())
+file.close()
+print(tot)"""
+#           Сумма двух-2
+'''
+file = open(r'D:\TEMP_Virtual\nums.txt', 'r', encoding='utf-8')
+tot = 0
+for line in file:
+    if len(line.strip()) != 0:
+        tot += int(line.strip())
+file.close()
+print(tot)'''
+#           Общая стоимость
+'''file = open(r'D:\TEMP_Virtual\prices.txt', 'r', encoding='utf-8')
+tot = 0
+for line in file:
+    x=line.strip().split('\t')
+    tot+=int(x[2])
+file.close()
+print(tot)
+'''
