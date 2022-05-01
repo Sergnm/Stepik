@@ -108,3 +108,77 @@ with open(r'C:\Users\sergnm\Downloads\file.txt', 'r', encoding='utf-8') as file:
                 if sp[i][j] in string.ascii_letters:
                     tot3+=1
     print(f'Input file contains:\n{tot3} letters\n{tot2} words\n{tot1} lines')
+
+
+import random
+#           Статистика по файлу
+with open(r'C:\Users\sergnm\Downloads\last_names.txt', 'r', encoding='utf-8') as file1, \
+     open(r'C:\Users\sergnm\Downloads\first_names.txt', 'r', encoding='utf-8') as file2:
+    sp1 = list(map(str.strip, file1.readlines()))
+    sp2 = list(map(str.strip, file2.readlines()))
+    print(random.choice(sp2), random.choice(sp1))
+    print(random.choice(sp2), random.choice(sp1))
+    print(random.choice(sp2), random.choice(sp1))
+
+#           Необычные страны
+with open(r'C:\Users\sergnm\Downloads\population.txt', 'r', encoding='utf-8') as file:
+    for line in file:
+        sp = line.strip().split('\t')
+        if sp[0].startswith('G') and int(sp[1]) > 500000:
+            print(sp[0])
+
+#           CSV-файл
+def read_csv():
+    with open(r'C:\Users\sergnm\Downloads\data1.csv', 'r', encoding='utf-8') as file:
+        spisok=[]
+        sp0=file.readline().strip().split(',')
+        for line in file:
+            sp1=line.strip().split(',')
+            spisok.append(dict(zip(sp0,sp1)))
+        return spisok
+print(read_csv())
+
+#           *********
+with open(r'C:\Users\sergnm\Downloads\input.txt', 'r') as input_file, open(r'C:\Users\sergnm\Downloads\output.txt', 'w') as output_file:
+    tot=1
+    for line in input_file:
+        x=(line.strip())
+        print(tot,') ',x,sep="", file=output_file)
+        tot+=1
+
+#           *********
+with open(r'C:\Users\sergnm\Downloads\class_scores.txt', 'r', encoding='utf-8') as input_file, open(
+        r'C:\Users\sergnm\Downloads\new_scores.txt', 'w', encoding='utf-8') as output_file:
+    for line in input_file:
+        x = line.strip().split()
+        print(x[0], 100 if int(x[1]) + 5 > 100 else int(x[1]) + 5, file=output_file)
+
+#           *********
+with open(r'C:\Users\sergnm\Downloads\goats.txt', 'r', encoding='utf-8') as input_file, open(
+        r'C:\Users\sergnm\Downloads\answer.txt', 'w', encoding='utf-8') as output_file:
+    spisok0 = list(map(str.strip, input_file.readlines()))
+    spisok = spisok0[spisok0.index('GOATS')+1::]
+    result = {}
+    for color in spisok:
+        result[color] = result.get(color, 0) + 1
+    print(result, len(spisok))
+    for key, value in result.items():
+        print(key,value/len(spisok))
+        if value>len(spisok)*0.07:
+            print(key, file=output_file)
+
+
+with open(r'C:\Users\sergnm\Downloads\logfile.txt', 'r', encoding='utf-8') as input_file, open(
+        r'C:\Users\sergnm\Downloads\output.txt', 'w', encoding='utf-8') as output_file:
+    for line in input_file:
+        sp = line.strip().split()
+        if (int(sp[3][:2])*60+int(sp[3][3:]))-(int(sp[2][:2])*60+int(sp[3][3:]))>=60:
+            print(*sp, file=output_file)
+
+#           Суммарная стоимость
+from operator import *
+from functools import reduce
+with open(r'C:\Users\sergnm\Downloads\ledger.txt', 'r', encoding='utf-8') as input_file:
+    sp = sum(list(map(lambda x: int(x.strip('$')), list(map(str.strip, input_file.readlines())))))
+    print('$',sp,sep='')
+
